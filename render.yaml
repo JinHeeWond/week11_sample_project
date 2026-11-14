@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: handong-attachment-board
+    runtime: docker
+    plan: free
+    dockerfilePath: ./dockerfile
+    healthCheckPath: /posts
+    autoDeployTrigger: commit
+    envVars:
+      - key: DB_URL
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: UPLOAD_DIR
+        value: /app/uploads
