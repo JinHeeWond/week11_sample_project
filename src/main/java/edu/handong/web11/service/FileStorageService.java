@@ -83,6 +83,23 @@ public class FileStorageService {
         return new PathResource(target);
     }
 
+    public Resource loadImage(Attachment attachment) {
+        String name = attachment.getOriginalFilename();
+        int dot = name == null ? -1 : name.lastIndexOf('.');
+        String extension = dot < 0 ? "" : name.substring(dot + 1).toLowerCase(Locale.ROOT);
+        String expectedType = switch (extension) {
+            case "jpg", "jpeg" -> "image/jpeg";
+            case "png" -> "image/png";
+            case "gif" -> "image/gif";
+            default -> null;
+        };
+        if (expectedType == null || !expectedType.equals(attachment.getContentType())) {
+            throw new ResponseStatusException(HttpStatus.UNSUPPORTED_MEDIA_TYPE,
+                "이미지 미리보기는 JPG, JPEG, PNG, GIF 파일만 가능합니다.");
+        }
+        return load(attachment);
+    }
+
     public void deleteIfExists(Attachment attachment) {
         try {
             Files.deleteIfExists(uploadDir.resolve(attachment.getStoredFilename()).normalize());

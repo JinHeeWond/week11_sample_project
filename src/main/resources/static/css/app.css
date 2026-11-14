@@ -6,3 +6,34 @@ h1 { font-size:2rem; font-weight:750; letter-spacing:-0.04em; }
 .post-content { margin-top:1.5rem; white-space:pre-wrap; min-height:90px; line-height:1.8; }
 .table th { color:#64748b; font-size:.83rem; background:#f8fafc; }
 .table td, .table th { padding-top:1rem; padding-bottom:1rem; }
+
+/* STEP 3: 자료함의 색상과 파일 목록 표시를 통일한다. */
+:root { --library-accent:#0f766e; --library-accent-dark:#115e59; }
+body { background:linear-gradient(150deg,#edf7f4 0%,#f6f8fb 65%); min-height:100vh; color:#183832; }
+a { color:var(--library-accent); }
+a:hover { color:var(--library-accent-dark); }
+.eyebrow { color:var(--library-accent); }
+.page-description { color:#59716b; margin:0.65rem 0 0; line-height:1.7; }
+.card { border:1px solid #dce9e4; border-radius:20px; overflow:hidden; }
+.btn { border-radius:10px; font-weight:600; }
+.btn-primary { --bs-btn-bg:#0f766e; --bs-btn-border-color:#0f766e; --bs-btn-hover-bg:#115e59; --bs-btn-hover-border-color:#115e59; --bs-btn-active-bg:#134e4a; --bs-btn-active-border-color:#134e4a; }
+.btn-outline-primary { --bs-btn-color:#0f766e; --bs-btn-border-color:#0f766e; --bs-btn-hover-bg:#0f766e; --bs-btn-hover-border-color:#0f766e; --bs-btn-active-bg:#115e59; --bs-btn-active-border-color:#115e59; }
+.form-control:focus { border-color:#0f766e; box-shadow:0 0 0 .2rem rgba(15,118,110,.15); }
+.table th { background:#edf5f1; color:#46665c; white-space:nowrap; }
+.attachment-row { padding:1rem 1.1rem; }
+.attachment-info { min-width:0; }
+.attachment-name { display:block; overflow-wrap:anywhere; }
+.attachment-meta { display:flex; flex-wrap:wrap; gap:.5rem .8rem; align-items:center; margin-top:.45rem; font-size:.8rem; color:#59716b; }
+.file-type { background:#e8f3ef; color:#176354; border-radius:6px; padding:.15rem .5rem; overflow-wrap:anywhere; }
+.attachment-row .btn { flex-shrink:0; }
+@media (max-width:576px) {
+  h1 { font-size:1.65rem; }
+  main > .d-flex.justify-content-between { align-items:flex-start !important; flex-direction:column; gap:1.2rem; }
+  .attachment-row { align-items:flex-start !important; flex-wrap:wrap; }
+}
+
+.preview-section { display:grid; gap:1.25rem; margin-top:1.5rem; }
+.image-preview { margin:0; padding:1rem; background:#f3f8f6; border:1px solid #dce9e4; border-radius:14px; }
+.image-preview img { display:block; width:auto; max-width:100%; max-height:480px; margin:auto; object-fit:contain; border-radius:8px; }
+.image-preview figcaption { margin-top:.75rem; font-size:.85rem; color:#59716b; overflow-wrap:anywhere; }
+.preview-error { margin:0; padding:1rem; color:#9a3412; background:#fff7ed; border-radius:8px; }
