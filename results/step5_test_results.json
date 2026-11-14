@@ -1,0 +1,101 @@
+{
+  "scope": "local HTTP integration tests",
+  "base_url": "http://localhost:8080",
+  "checks": [
+    {
+      "name": "Create and read post with multiple attachments",
+      "passed": true
+    },
+    {
+      "name": ".jpg preview response",
+      "passed": true
+    },
+    {
+      "name": ".jpg download preserves original bytes",
+      "passed": true
+    },
+    {
+      "name": ".jpeg preview response",
+      "passed": true
+    },
+    {
+      "name": ".jpeg download preserves original bytes",
+      "passed": true
+    },
+    {
+      "name": ".png preview response",
+      "passed": true
+    },
+    {
+      "name": ".png download preserves original bytes",
+      "passed": true
+    },
+    {
+      "name": ".gif preview response",
+      "passed": true
+    },
+    {
+      "name": ".gif download preserves original bytes",
+      "passed": true
+    },
+    {
+      "name": "PDF preview rejected with 415",
+      "passed": true
+    },
+    {
+      "name": ".pdf download preserves original bytes",
+      "passed": true
+    },
+    {
+      "name": "Update post",
+      "passed": true
+    },
+    {
+      "name": "Empty title returns form with validation errors",
+      "passed": true
+    },
+    {
+      "name": "/attachments/999999999/view status 404",
+      "passed": true
+    },
+    {
+      "name": "/attachments/999999999/download status 404",
+      "passed": true
+    },
+    {
+      "name": "/attachments/invalid/view status 400",
+      "passed": true
+    },
+    {
+      "name": "/attachments/6/view status 200",
+      "passed": true
+    },
+    {
+      "name": "Missing disk image returns 404",
+      "passed": true
+    },
+    {
+      "name": "Missing disk download returns 404",
+      "passed": true
+    },
+    {
+      "name": "Delete temporary post",
+      "passed": true
+    },
+    {
+      "name": "Deleted post returns 404",
+      "passed": true
+    },
+    {
+      "name": "Deleted attachment returns 404",
+      "passed": true
+    },
+    {
+      "name": "Browser-downloaded TXT matches source SHA256",
+      "passed": true
+    }
+  ],
+  "passed": 23,
+  "failed": 0,
+  "browser_download_sha256": "edcce9d935c58c75eb3c3a6475f0e9b0e4e317b9ec61c26fa9bcd80368fefb88"
+}
