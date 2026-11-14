@@ -40,8 +40,11 @@ public class PostController {
     @PostMapping("/posts")
     public String create(@Valid @ModelAttribute("postForm") PostForm form, BindingResult errors,
                          @RequestParam(name = "files", required = false) List<MultipartFile> files) {
+        //검증에 실패하면 저장하지 않고 작성 화면을 다시 보여 준다.
         if (errors.hasErrors()) return "posts/form";
+        //첨부파일이 없다면 빈 목록으로 전달하고 Service에서 게시글과 첨부파일을 저장한다.
         Long id = posts.create(form, files == null ? List.of() : files);
+        //저장된 게시글의 상세 주소로 이동해서 새로고침한다
         return "redirect:/posts/" + id;
     }
 
